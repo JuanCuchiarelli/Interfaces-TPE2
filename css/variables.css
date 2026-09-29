@@ -1,0 +1,65 @@
+/* ==========================================================================
+   DESIGN SYSTEM — Mundo Juegos
+   Tokens exactos del Design System de Figma (escala primaria y secundaria).
+   ========================================================================== */
+
+:root {
+  /* --- Escala primaria (azules) --- */
+  --color-primary-100: #9eacfa;
+  --color-primary-200: #7685f9;
+  --color-primary-300: #324ab2;
+  --color-primary-400: #2840f6; /* primario base */
+  --color-primary-500: #24357f; /* más oscuro / pressed */
+
+  /* --- Escala secundaria (neutros) --- */
+  --color-neutral-100: #f4f6fc;
+  --color-neutral-200: #dde2f0;
+  --color-neutral-300: #8b93ad;
+  --color-neutral-400: #3d4560;
+  --color-neutral-500: #1a1f35;
+
+  /* --- Acento --- */
+  --color-accent: #f7b928;
+  --color-accent-dark: #d99f1b;
+
+  /* Color del ícono sobre fondo primario (ej: la corona del badge premium) */
+  --color-icon-on-primary: var(--color-neutral-100);
+
+  /* --- Botón primario --- */
+  --btn-primary-default: var(--color-primary-300);
+  --btn-primary-hover: var(--color-primary-200);
+  --btn-primary-pressed: var(--color-primary-500);
+  --btn-primary-disabled: var(--color-primary-100);
+
+  /* --- Botón secundario --- */
+  --btn-secondary-default: var(--color-neutral-300);
+  --btn-secondary-hover: var(--color-neutral-200);
+  --btn-secondary-pressed: var(--color-neutral-400);
+  --btn-secondary-disabled: var(--color-neutral-200);
+
+  /* --- Tipografía --- */
+  /* Fuente del logo: solo para el logo (que en el sitio es una imagen). Nunca en títulos. */
+  --font-logo: "Audiowide", cursive;
+  --font-base: "Inter", sans-serif;
+
+  --fs-h1: clamp(1.75rem, 4vw, 2.5rem);
+  --fs-h2: clamp(1.375rem, 3vw, 2rem);
+  --fs-h3: 1.25rem;
+  --fs-h4: 1.05rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-button: 1rem;
+
+  /* --- Espaciado / radios --- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+
+  /* --- Layout --- */
+  --max-width: 1440px;
+  --header-height: 64px;
+}

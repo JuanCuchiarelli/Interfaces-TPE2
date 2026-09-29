@@ -1,0 +1,264 @@
+/* ==========================================================================
+   PÁGINA DE JUEGO — Mundo Juegos
+   Desktop-first (esta página no es mobile-first según consigna, pero se
+   mantiene legible en pantallas chicas por las dudas).
+   ========================================================================== */
+
+.game-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-2);
+}
+
+/* ---------------- Breadcrumbs ---------------- */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: var(--fs-small);
+  color: var(--color-neutral-300);
+  padding: var(--space-1) 0;
+}
+.breadcrumbs a { color: var(--color-neutral-400); }
+.breadcrumbs a:hover { color: var(--color-primary-400); }
+.breadcrumbs [aria-current] { color: var(--color-primary-400); font-weight: 600; }
+
+.game-title {
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  color: var(--color-primary-400);
+  margin: var(--space-1) 0 var(--space-3);
+}
+
+/* ---------------- Área de juego + panel ayuda ---------------- */
+.game-run {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+@media (min-width: 900px) {
+  .game-run { grid-template-columns: 1.6fr 1fr; }
+}
+
+/* El fondo lo aporta la clase thumb--* del juego (la pone game.js) */
+.game-run__board {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 320px;
+}
+.game-run__help {
+  background: var(--color-primary-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.game-run__help h2 {
+  color: var(--color-primary-500);
+  font-size: var(--fs-h3);
+  margin-bottom: 0.5rem;
+}
+.game-run__help p { line-height: 1.6; color: var(--color-primary-500); }
+
+.help-icon { align-self: center; opacity: 0.85; }
+
+/* ---------------- Compartir ---------------- */
+.share { margin-top: auto; }
+.share__icons { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: 0.6rem; }
+.icon-circle {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-primary-500);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.icon-circle:hover { background: var(--color-primary-300); }
+.share__status {
+  min-height: 1.4em;
+  margin-top: 0.5rem;
+  font-size: var(--fs-small);
+}
+
+/* ---------------- Acerca de ---------------- */
+.about-box {
+  background: var(--color-primary-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  text-align: center;
+  margin-bottom: var(--space-3);
+}
+.about-box h2 {
+  color: var(--color-primary-500);
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-2);
+}
+.about-box p {
+  max-width: 80ch;
+  margin: 0 auto var(--space-3);
+  line-height: 1.7;
+  color: var(--color-primary-500);
+}
+.about-box h3 {
+  color: var(--color-primary-500);
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-2);
+}
+
+/* ---------------- Galería (carrusel) ---------------- */
+.gallery {
+  --visible: 3;
+  --gap: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+@media (max-width: 899px) { .gallery { --visible: 2; } }
+@media (max-width: 599px) { .gallery { --visible: 1; } }
+
+.gallery__viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+.gallery__track {
+  --index: 0;
+  display: flex;
+  gap: var(--gap);
+  /* desplaza de a una imagen: (ancho de imagen + gap) * índice */
+  transform: translateX(calc(var(--index) * (100% + var(--gap)) / var(--visible) * -1));
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.gallery__item {
+  flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+  margin: 0;
+}
+.gallery__arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary-500);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+.gallery__arrow:hover:not(:disabled) { background: var(--color-primary-300); }
+.gallery__arrow:disabled { background: var(--btn-primary-disabled); cursor: not-allowed; }
+.gallery__status {
+  margin: var(--space-1) 0 0;
+  font-size: var(--fs-small);
+  color: var(--color-primary-500);
+}
+
+.gallery__thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--space-1);
+}
+img.gallery__thumb { display: block; object-fit: cover; padding: 0; }
+.ph-label {
+  background: rgba(22, 26, 44, 0.55);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+
+/* Placeholders de las imágenes de Pirates (reemplazar por los exports de Figma) */
+.gallery__thumb--banner     { background: linear-gradient(160deg, #e8cf98, #c7a24e 60%, #8a6a2c); }
+.gallery__thumb--board-full { background: radial-gradient(circle at 50% 40%, #caa96a, #7a5522 75%); }
+.gallery__thumb--board-mid  { background: radial-gradient(circle at 50% 40%, #d8bd85, #5f4118 75%); }
+.gallery__thumb--coins      { background: radial-gradient(circle at 30% 30%, #f3d36b, #a67a12 80%); }
+.gallery__thumb--map        { background: linear-gradient(135deg, #d9c08a, #6e8b86); }
+.gallery__thumb--treasure   { background: linear-gradient(160deg, #6b4a24, #24170a); }
+
+/* Variedad de tonos para las galerías generadas de los demás juegos */
+.gallery__item:nth-child(even) .is-generic { filter: saturate(1.25) brightness(0.9); }
+.gallery__item:nth-child(3n) .is-generic { filter: hue-rotate(14deg) brightness(1.05); }
+
+/* ---------------- Comentarios ---------------- */
+.comments { margin-bottom: var(--space-4); }
+.comments h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary-400);
+  font-size: var(--fs-h2);
+  border-bottom: 2px solid var(--color-neutral-200);
+  padding-bottom: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.comment-form {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+.comment-form__field { flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
+.comment-form textarea {
+  width: 100%;
+  min-height: 90px;
+  resize: vertical;
+  border: 1.5px solid var(--color-neutral-200);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  font-family: var(--font-base);
+  font-size: var(--fs-body);
+}
+.comment-form textarea:focus { outline: 2px solid var(--color-primary-300); border-color: transparent; }
+.comment-form .btn { align-self: flex-start; }
+
+.avatar--sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-neutral-500);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.comment-list { display: flex; flex-direction: column; gap: var(--space-2); }
+.comment {
+  display: flex;
+  gap: var(--space-2);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-md);
+  padding: var(--space-2);
+}
+.comment__meta { font-size: var(--fs-small); margin-bottom: 0.2rem; }
+.comment__meta span { color: var(--color-neutral-300); margin-left: 0.4rem; }
+.comment__text { margin-bottom: 0.5rem; }
+.comment__actions { display: flex; gap: var(--space-2); font-size: var(--fs-small); color: var(--color-neutral-300); }
+.comment__actions button { color: inherit; }
+.comment__actions button:hover { color: var(--color-primary-400); }
+
+/* ---------------- Volver a home ---------------- */
+.back-home {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--color-primary-400);
+  margin-bottom: var(--space-4);
+}
+.back-home:hover { text-decoration: underline; }

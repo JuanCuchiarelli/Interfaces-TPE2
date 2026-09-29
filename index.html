@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mundo Juegos — Inicio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<!-- ============ LOADING SIMULADO (se completa en Fase 3) ============ -->
+<div id="loading-screen" class="loading-screen" aria-hidden="true">
+  <div class="loading-spinner" aria-hidden="true"></div>
+  <p class="loading-percent" id="loading-percent">0%</p>
+  <p class="loading-label">Cargando Mundo Juegos…</p>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <button class="icon-btn menu-toggle" id="menu-open" aria-label="Abrir menú" aria-controls="side-menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+    <a href="index.html" class="logo">
+      <img src="img/logo-mundo-juegos.png" alt="Mundo Juegos">
+    </a>
+
+    <button type="button" class="icon-btn search-toggle" id="search-toggle" aria-label="Abrir buscador" aria-expanded="false" aria-controls="search-form">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </button>
+
+    <form class="search-bar" id="search-form" role="search" onsubmit="return false;">
+      <input type="search" placeholder="¿A qué jugamos hoy?" aria-label="Buscar juegos">
+      <button type="submit" class="icon-btn search-btn" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+    </form>
+
+    <a href="login.html" class="profile-btn">
+      Perfil
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/>
+      </svg>
+    </a>
+  </div>
+</header>
+
+<!-- ============ MENÚ LATERAL (drawer) ============ -->
+<nav class="side-menu" id="side-menu" aria-label="Menú principal" aria-hidden="true">
+  <button class="icon-btn menu-close" id="menu-close" aria-label="Cerrar menú">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="4" y1="4" x2="20" y2="20"/>
+      <line x1="20" y1="4" x2="4" y2="20"/>
+    </svg>
+  </button>
+
+  <div class="side-menu__user">
+    <span class="avatar" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/>
+      </svg>
+    </span>
+    Hola, Usuario
+  </div>
+
+  <ul class="side-menu__list">
+    <li><a href="index.html"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3 2 12h3v8h6v-5h2v5h6v-8h3z"/></svg> Inicio</a></li>
+    <li><a href="#populares"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2a5 5 0 0 0-3 9l-1 5h8l-1-5a5 5 0 0 0-3-9zM9 18h6v2H9z"/></svg> Juegos nuevos</a></li>
+    <li><a href="#"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5zM14.5 20c.3-2.6 1.8-4.3 4-4.7 2 .5 3.2 2.1 3.5 4.7z"/></svg> Multijugador</a></li>
+    <li><a href="#"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2a5 5 0 0 0-3 9l-1 5h8l-1-5a5 5 0 0 0-3-9zM9 18h6v2H9z"/></svg> Aventura</a></li>
+    <li><a href="#"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="8" cy="8" r="4"/><path d="M11 11 21 21M15 17l3-3"/></svg> Estrategia</a></li>
+    <li><a href="#"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.6 5.6 6.2.6-4.6 4.1 1.3 6.1L12 16.3 6.5 19.4l1.3-6.1-4.6-4.1 6.2-.6z"/></svg> Mis favoritos</a></li>
+    <li><a href="login.html"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg> Mi perfil</a></li>
+  </ul>
+
+  <div class="side-menu__social">
+    <p>Seguinos en redes:</p>
+    <div class="social-icons">
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16"/><path d="M14 9h2V6h-2a3 3 0 0 0-3 3v2H9v3h2v5h3v-5h2l1-3h-3v-2a1 1 0 0 1 1-1z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M10 9.5v5l5-2.5z" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</nav>
+<div class="side-menu-overlay" id="side-menu-overlay" hidden></div>
+
+<main>
+  <!-- ============ HERO / DESTACADO ============ -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="hero__eyebrow">Destacado del mes:</p>
+        <h1 class="hero__title">Plants vs Zombies</h1>
+        <p class="hero__desc">
+          Hacé todo lo posible para evitar que los zombies atraviesen el
+          jardín y lleguen a la casa. Para ello, vas a disponer de una defensa
+          de lo más original: una gran variedad de plantas mutantes.
+        </p>
+        <a href="game.html?id=plants-vs-zombies" class="btn btn--primary">Jugar ahora →</a>
+      </div>
+      <div class="hero__media">
+        <div class="hero__thumb hero__thumb--pvz" aria-hidden="true">
+          <span>PLANTS<br>vs<br>ZOMBIES</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JUEGOS POPULARES ============ -->
+  <section class="carousel-section" id="populares" aria-label="Juegos populares">
+    <h2 class="section-title">Juegos populares</h2>
+    <div class="carousel">
+      <button class="carousel__arrow carousel__arrow--left" aria-label="Anterior">‹</button>
+      <div class="carousel__viewport">
+        <ul class="carousel__track" id="track-populares" data-section="populares"></ul>
+      </div>
+      <button class="carousel__arrow carousel__arrow--right" aria-label="Siguiente">›</button>
+    </div>
+  </section>
+
+  <!-- ============ SUGERENCIAS PARA VOS ============ -->
+  <section class="carousel-section" aria-label="Sugerencias para vos">
+    <h2 class="section-title">Sugerencias para vos</h2>
+    <div class="carousel">
+      <button class="carousel__arrow carousel__arrow--left" aria-label="Anterior">‹</button>
+      <div class="carousel__viewport">
+        <ul class="carousel__track" id="track-sugerencias" data-section="sugerencias"></ul>
+      </div>
+      <button class="carousel__arrow carousel__arrow--right" aria-label="Siguiente">›</button>
+    </div>
+  </section>
+
+  <!-- ============ ACCIÓN ============ -->
+  <section class="carousel-section" aria-label="Acción">
+    <h2 class="section-title">Acción</h2>
+    <div class="carousel">
+      <button class="carousel__arrow carousel__arrow--left" aria-label="Anterior">‹</button>
+      <div class="carousel__viewport">
+        <ul class="carousel__track" id="track-accion" data-section="accion"></ul>
+      </div>
+      <button class="carousel__arrow carousel__arrow--right" aria-label="Siguiente">›</button>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER (Fat Footer) ============ -->
+<footer class="site-footer">
+  <p class="site-footer__brand">MundoJuegos.com</p>
+  <p class="site-footer__desc">
+    En MundoJuegos encontrás cientos de títulos gratis y premium para jugar
+    directo desde el navegador. Sin descargas, sin complicaciones: elegí tu
+    juego y arrancá a jugar.
+  </p>
+
+  <div class="site-footer__cols">
+    <div class="footer-col">
+      <h3>Explorar</h3>
+      <a href="index.html">Inicio</a>
+      <a href="#">Categorías</a>
+      <a href="#">Nuevos</a>
+      <a href="#">Más jugados</a>
+    </div>
+    <div class="footer-col">
+      <h3>Cuenta</h3>
+      <a href="login.html">Mi Perfil</a>
+      <a href="#">Favoritos</a>
+      <a href="#">Mis compras</a>
+      <a href="#">Configuración</a>
+    </div>
+    <div class="footer-col">
+      <h3>Soporte</h3>
+      <a href="#">Ayuda</a>
+      <a href="#">Contactos</a>
+      <a href="#">Preguntas frecuentes</a>
+      <a href="#">Configuración</a>
+    </div>
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <a href="#">Términos</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Cookies</a>
+      <a href="#">Sobre nosotros</a>
+    </div>
+  </div>
+
+  <p class="site-footer__copy">© 2026 Mundo Juegos · Todos los derechos reservados</p>
+</footer>
+
+<script src="js/games.js"></script>
+<script src="js/loading.js"></script>
+<script src="js/script.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

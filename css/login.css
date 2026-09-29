@@ -1,0 +1,211 @@
+/* ==========================================================================
+   LOGIN / REGISTRO — Mundo Juegos
+   Página desktop según consigna; se mantiene usable en pantallas chicas.
+   ========================================================================== */
+
+.auth-body { background: var(--color-neutral-200); }
+
+.auth-page {
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-4) var(--space-2);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 600px;
+  background: var(--color-neutral-100);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 16px rgba(22, 26, 44, 0.18);
+  padding: var(--space-4) clamp(1.25rem, 6vw, 3.5rem);
+}
+
+.auth-title {
+  text-align: center;
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-300);
+  margin-bottom: var(--space-3);
+}
+
+/* ---------------- Tabs ---------------- */
+.auth-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+.auth-tab {
+  padding: 0.4rem 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--color-neutral-300);
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease;
+}
+.auth-tab:hover { color: var(--color-primary-300); }
+.auth-tab.is-active {
+  color: var(--color-primary-300);
+  border-bottom-color: var(--color-primary-300);
+  font-weight: 600;
+}
+
+/* ---------------- Formularios ---------------- */
+.auth-form { display: flex; flex-direction: column; gap: var(--space-2); }
+.auth-form[hidden] { display: none; }
+
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.field label { font-size: var(--fs-body); color: var(--color-neutral-500); }
+.req { color: #e5484d; margin-right: 0.2rem; }
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"],
+.field input[type="date"] {
+  width: 100%;
+  height: 48px;
+  padding: 0 0.9rem;
+  background: #fff;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 4px;
+  font-family: var(--font-base);
+  font-size: var(--fs-body);
+  color: var(--color-neutral-500);
+}
+.field input::placeholder { color: var(--color-neutral-300); opacity: 0.8; }
+.field input:focus {
+  outline: 2px solid var(--color-primary-300);
+  outline-offset: 0;
+  border-color: transparent;
+}
+.field.is-invalid input { border-color: #e5484d; }
+.field__error {
+  font-size: var(--fs-small);
+  color: #c62d33;
+}
+.field__error[hidden] { display: none; }
+
+/* ---------------- Captcha simulado ---------------- */
+.field--captcha { align-items: center; margin-top: var(--space-1); }
+.captcha {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: min(100%, 320px);
+  padding: 0.9rem 1rem;
+  background: #fff;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  cursor: pointer;
+}
+.captcha input {
+  width: 26px;
+  height: 26px;
+  accent-color: var(--color-primary-300);
+  cursor: pointer;
+}
+.captcha__text { font-weight: 500; flex: 1; }
+.captcha__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.6rem;
+  color: var(--color-neutral-300);
+  line-height: 1.2;
+}
+
+/* ---------------- Botón principal ---------------- */
+.auth-submit {
+  align-self: center;
+  justify-content: center;
+  min-width: 220px;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  margin-top: var(--space-1);
+}
+.auth-forgot {
+  align-self: center;
+  color: var(--color-primary-300);
+  letter-spacing: 0.05em;
+}
+.auth-forgot:hover { text-decoration: underline; }
+
+/* ---------------- Redes ---------------- */
+.auth-social { text-align: center; margin-top: var(--space-3); }
+.auth-social[hidden] { display: none; }
+.auth-social p {
+  color: var(--color-neutral-300);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-2);
+}
+.auth-social__buttons { display: flex; justify-content: center; gap: var(--space-2); }
+.social-btn {
+  width: 88px;
+  height: 54px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(22, 26, 44, 0.18);
+}
+.social-btn--facebook { background: #1877f2; }
+.social-btn--google { background: #fff; }
+
+/* ---------------- Registro exitoso ---------------- */
+.auth-success {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
+}
+.auth-success[hidden] { display: none; }
+.auth-success__icon { color: #2e9e5b; }
+.auth-success h2 { color: var(--color-primary-300); font-size: var(--fs-h2); }
+.auth-success p { color: var(--color-neutral-400); }
+
+/* Al mostrar el éxito se ocultan tabs y título original */
+.auth-card.is-done .auth-tabs,
+.auth-card.is-done .auth-title { display: none; }
+
+/* ---------------- Animación de registro exitoso ---------------- */
+@keyframes successPop {
+  0%   { opacity: 0; transform: scale(0.85) translateY(10px); }
+  70%  { opacity: 1; transform: scale(1.03) translateY(0); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.auth-success.is-visible { animation: successPop 0.45s ease both; }
+
+/* El check se "dibuja": arranca con el trazo oculto (dashoffset 100%)
+   y llega a 0% -> visible. pathLength="100" en el SVG normaliza el
+   largo del trazo para poder animar en porcentaje. */
+@keyframes strokeDraw {
+  0%   { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+.auth-success__icon .success-circle,
+.auth-success__icon .success-check {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+.auth-success.is-visible .success-circle {
+  animation: strokeDraw 0.5s ease-out 0.1s forwards;
+}
+.auth-success.is-visible .success-check {
+  animation: strokeDraw 0.35s ease-out 0.55s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-success.is-visible,
+  .auth-success.is-visible .success-circle,
+  .auth-success.is-visible .success-check {
+    animation: none !important;
+    stroke-dashoffset: 0;
+  }
+}
