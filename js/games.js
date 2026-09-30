@@ -53,6 +53,8 @@ const GAMES = [
       { cls: "gallery__thumb--banner", caption: "Portada de Peg Solitaire Pirates", src: "img/games/pegsolitaire.jpg" },
       { cls: "gallery__thumb--board-full", caption: "Tablero inicial con todas las monedas", src: "img/games/pegsolitaire1.jpg" },
       { cls: "gallery__thumb--board-mid", caption: "Partida avanzada", src: "img/games/pegsolitaire2.jpg" },
+      { cls: "gallery__thumb--coins", caption: "Detalle de las monedas de oro", src: "img/games/pegsolitaire3.jpg" },
+      { cls: "gallery__thumb--map", caption: "Mapa del tesoro", src: "img/games/pegsolitaire4.jpg" },
     ],
   },
   {
