@@ -1,6 +1,5 @@
 // ============================================================
 // login.html — alternar registro/login + validación (front-end only)
-// La animación del registro exitoso se agrega en la Fase 3.
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -96,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     social.hidden = true;
     success.hidden = false;
     card.classList.add("is-done");
-    // se agrega en el frame siguiente para asegurar que la animación se dispare
+    // Frame siguiente: para que la animación se dispare
     requestAnimationFrame(() => success.classList.add("is-visible"));
   });
 

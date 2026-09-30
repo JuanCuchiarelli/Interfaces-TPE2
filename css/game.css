@@ -183,7 +183,7 @@ img.gallery__thumb { display: block; object-fit: cover; padding: 0; }
   border-radius: 999px;
 }
 
-/* Placeholders de las imágenes de Pirates (reemplazar por los exports de Figma) */
+/* Fondos de respaldo de la galería de Pirates */
 .gallery__thumb--banner     { background: linear-gradient(160deg, #e8cf98, #c7a24e 60%, #8a6a2c); }
 .gallery__thumb--board-full { background: radial-gradient(circle at 50% 40%, #caa96a, #7a5522 75%); }
 .gallery__thumb--board-mid  { background: radial-gradient(circle at 50% 40%, #d8bd85, #5f4118 75%); }

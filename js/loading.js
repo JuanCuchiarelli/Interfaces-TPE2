@@ -1,7 +1,6 @@
 // ============================================================
 // index.html — loading simulado de 5s con % de avance
-// No depende de ninguna carga real: es una simulación con
-// requestAnimationFrame, como pide la consigna.
+// Simulación con requestAnimationFrame, no depende de carga real.
 // ============================================================
 
 (function () {

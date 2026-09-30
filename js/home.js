@@ -4,8 +4,7 @@
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 
-// Precios de los juegos pagos. No vive en games.js para no pisar tu copia
-// (que ya tiene las imágenes cargadas); si preferís, lo movés vos ahí.
+// Precios de los juegos pagos (separado de games.js para no pisar tus datos).
 const PREMIUM_PRICES = {
   "pizza-now": "1.99",
   "fruit-match": "0.99",
@@ -67,7 +66,7 @@ function buildCard(game) {
   const a = document.createElement("a");
   a.href = gameUrl(game.id);
 
-  // Envoltorio de la imagen: acá se apoyan la corona y el overlay de hover
+  // Envoltorio de la imagen: soporta la corona y el overlay de hover
   const media = document.createElement("div");
   media.className = "game-card__media";
 
@@ -77,12 +76,8 @@ function buildCard(game) {
     thumb.className = "game-card__thumb";
     thumb.src = game.image;
     thumb.alt = "";
-    // Sin lazy: el carrusel infinito clona las cards y las mueve con
-    // transform (no con scroll real), así que el navegador no detecta a
-    // tiempo cuándo van a entrar en pantalla y la imagen tarda en pedirse
-    // recién cuando ya deberías estar viéndola. Son pocas imágenes por
-    // carrusel, así que cargarlas todas de entrada sale más barato que
-    // ese parpadeo en blanco.
+    // Sin lazy: el carrusel mueve las cards con transform, no con scroll
+    // real, y el navegador no llega a pedir la imagen a tiempo.
     thumb.decoding = "async";
   } else {
     thumb = document.createElement("div");
@@ -152,7 +147,6 @@ function renderHero() {
 document.addEventListener("DOMContentLoaded", () => {
   renderHero();
   renderCarousels();
-  // Recién acá existen las cards dentro de cada track, así que el carrusel
-  // infinito (definido en script.js) se arma en este momento.
+  // Recién acá existen las cards en cada track: ahora sí se arma el carrusel.
   document.querySelectorAll(".carousel").forEach(setupInfiniteCarousel);
 });

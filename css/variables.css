@@ -38,7 +38,7 @@
   --btn-secondary-disabled: var(--color-neutral-200);
 
   /* --- Tipografía --- */
-  /* Fuente del logo: solo para el logo (que en el sitio es una imagen). Nunca en títulos. */
+  /* Solo para el logo (es una imagen en el sitio), nunca en títulos */
   --font-logo: "Audiowide", cursive;
   --font-base: "Inter", sans-serif;
 

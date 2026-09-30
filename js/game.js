@@ -54,9 +54,8 @@ function buildSlideEl(slide) {
     media.className = "gallery__thumb";
     media.src = slide.src;
     media.alt = slide.caption;
-    // Sin lazy: la galería se mueve con transform, no con scroll real, así
-    // que el navegador no llega a pedir la imagen a tiempo y se ve vacía
-    // por un momento. Son pocas imágenes, se cargan todas de entrada.
+    // Sin lazy: se mueve con transform, no scroll real, y el navegador
+    // no llega a pedir la imagen a tiempo.
     media.decoding = "async";
   } else {
     media = document.createElement("div");
@@ -103,8 +102,7 @@ function initGallery(game) {
     const to = Math.min(index + visible, slides.length);
     status.textContent = "Mostrando imágenes " + from + "–" + to + " de " + slides.length;
 
-    // Además del desplazamiento (transition del track), las imágenes que
-    // quedan visibles entran con un fundido + escala (animación @keyframes).
+    // Las imágenes visibles entran con fundido + escala (@keyframes).
     const items = track.querySelectorAll(".gallery__item");
     items.forEach((item, i) => {
       const isVisible = i >= index && i < index + visible;
@@ -165,7 +163,7 @@ function initComments() {
   const textarea = form.querySelector("textarea");
   const submit = form.querySelector('button[type="submit"]');
 
-  // El botón queda deshabilitado (estado "disabled" del Design System) hasta que haya texto
+  // Botón deshabilitado (estado "disabled" del Design System) hasta que haya texto
   submit.disabled = true;
   textarea.addEventListener("input", () => {
     submit.disabled = textarea.value.trim() === "";

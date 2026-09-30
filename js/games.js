@@ -1,10 +1,10 @@
 // ============================================================
 // Datos de Mundo Juegos (fuente única para Home y game.html)
 //
-// Para reemplazar un placeholder por la imagen real:
-//   1) guardá el archivo en img/games/  (ej: img/games/slither.jpg)
-//   2) completá el campo `image` del juego  (ej: image: "img/games/slither.jpg")
-// Mientras `image` sea null se muestra el degradé de color + iniciales.
+// Reemplazar un placeholder por la imagen real:
+//   1) guardar el archivo en img/games/ (ej: slither.jpg)
+//   2) completar `image` con esa ruta
+// Con `image: null` se muestra el degradé de color + iniciales.
 // ============================================================
 
 const DEFAULT_GAME_ID = "pirates-peg-solitaire";
@@ -48,7 +48,7 @@ const GAMES = [
       "Pirates PS te pone al mando de una expedición en busca del mayor tesoro de los siete mares. En un tablero en forma de cruz, cada casilla esconde una moneda de oro: tu misión es saltar entre ellas para hacerlas desaparecer, hasta quedarte con la menor cantidad posible. Cuanto más vacío quede el tablero, más cerca estás de reclamar el tesoro pirata.",
     howTo:
       "Hacé clic izquierdo sobre una moneda y arrastrala sobre otra vecina, en línea recta, hacia un espacio vacío para eliminarla. Repetí hasta quedarte con una sola moneda, idealmente en el centro.",
-    // Imágenes de la galería. Cuando tengas los exports de Figma, completá `src`.
+    // Imágenes de la galería
     gallery: [
       { cls: "gallery__thumb--banner", caption: "Portada de Peg Solitaire Pirates", src: "img/games/pegsolitaire.jpg" },
       { cls: "gallery__thumb--board-full", caption: "Tablero inicial con todas las monedas", src: "img/games/pegsolitaire1.jpg" },
@@ -246,7 +246,7 @@ const GAMES = [
   },
 ];
 
-// Qué juegos muestra cada carrusel de la Home (en orden)
+// Juegos de cada carrusel de la Home, en orden
 const HOME_SECTIONS = {
   populares: ["slither", "pizza-now", "pirates-peg-solitaire", "cake-cat", "sudoku", "Bubble Shooter"],
   sugerencias: ["fruit-match", "poker", "ajedrez", "call-of-war", "racing-city", "bowling"],

@@ -1,7 +1,5 @@
 /* ==========================================================================
-   ANIMACIONES — Mundo Juegos (Fase 3)
-   Compartido por las 3 páginas. Todo con @keyframes de % (nada de
-   spritesheet) según pide la consigna.
+   ANIMACIONES — Mundo Juegos (compartido por las 3 páginas)
    ========================================================================== */
 
 /* ---------------------------------------------------------------
@@ -27,8 +25,7 @@ body.is-loading { overflow: hidden; }
    2) HOVERS de botones — 3 animaciones distintas (no el hamburguesa)
    --------------------------------------------------------------- */
 
-/* 2.a — Botones primarios: anillo de "pulso" (animación, no transición,
-   porque encadena varios pasos y se repite en loop mientras dura el hover) */
+/* 2.a — Botones primarios: anillo de "pulso" en loop mientras dura el hover */
 @keyframes pulseRing {
   0%   { box-shadow: 0 0 0 0 rgba(40, 64, 246, 0.45); }
   70%  { box-shadow: 0 0 0 10px rgba(40, 64, 246, 0); }
@@ -36,9 +33,8 @@ body.is-loading { overflow: hidden; }
 }
 .btn--primary:hover { animation: pulseRing 1.1s ease-out infinite; }
 
-/* 2.b — Botones circulares (compartir, flechas de la galería del juego):
-   "rebote" con escala, one-shot. Las flechas del carrusel de la Home NO
-   usan esta animación (a pedido: quedan solo con el cambio de color). */
+/* 2.b — Botones circulares (compartir, flechas de galería): rebote con escala.
+   Las flechas del carrusel de la Home no la usan, solo cambian de color. */
 @keyframes iconBounce {
   0%   { transform: translateY(0) scale(1); }
   35%  { transform: translateY(-4px) scale(1.12); }

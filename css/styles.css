@@ -35,13 +35,13 @@ body {
 .menu-toggle:hover { background: var(--color-neutral-500); }
 
 /* ==========================================================================
-   LOADING SCREEN (placeholder visual — animación real en Fase 3)
+   LOADING SCREEN
    ========================================================================== */
 .loading-screen {
   position: fixed;
   inset: 0;
   z-index: 200;
-  display: none; /* se activa por JS en Fase 3 */
+  display: none; /* activado por JS */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -87,7 +87,7 @@ body {
   width: auto;
 }
 
-/* Mobile: el buscador queda oculto y se abre con el botón de lupa (segunda fila) */
+/* Mobile: buscador oculto, se abre con el botón de lupa */
 .search-toggle { margin-left: auto; color: #fff; border-radius: var(--radius-sm); }
 .search-toggle:hover { background: rgba(255,255,255,0.18); }
 .site-header.is-search-open .search-bar { display: flex; }
@@ -306,9 +306,7 @@ body {
   position: relative;
 }
 
-/* El viewport recorta; el track es el que se desplaza con transform,
-   así el carrusel puede "girar" reposicionando las cards en vez de
-   solo hacer scroll nativo. */
+/* El viewport recorta; el track se desplaza con transform (no scroll nativo) */
 .carousel__viewport {
   overflow: hidden;
 }
@@ -341,9 +339,7 @@ body {
 .carousel__arrow--left { left: 6px; }
 .carousel__arrow--right { right: 6px; }
 .carousel__arrow:hover { background: var(--color-primary-400); }
-/* Cuando ya entran todas las cards en el viewport (pantallas muy anchas) no
-   hay nada más para revelar girando, así que la flecha se deshabilita en vez
-   de animar hacia un espacio vacío. */
+/* Sin nada más para revelar (todas las cards visibles): flecha apagada */
 .carousel__arrow:disabled {
   opacity: 0.35;
   cursor: default;
@@ -357,8 +353,7 @@ body {
   position: relative;
 }
 
-/* La card es UNA sola pieza redondeada: la imagen arriba y la franja del
-   título/categoría abajo, sin separación entre ambas (como en el Figma). */
+/* Card como una sola pieza redondeada: imagen arriba, franja de texto abajo */
 .game-card > a {
   display: block;
   border-radius: var(--radius-md);
@@ -366,7 +361,7 @@ body {
   background: var(--color-neutral-200);
 }
 
-/* Envoltorio de la imagen: acá se recorta el hover (corona + overlay) */
+/* Envoltorio de la imagen: recorta el hover (corona + overlay) */
 .game-card__media {
   position: relative;
 }
@@ -399,8 +394,7 @@ body {
   padding: 0 0.5rem 0.6rem;
 }
 
-/* Hover: la imagen se cubre y aparece el botón de acción de la card
-   (transición atada al estado hover, como marca la teórica) */
+/* Hover: se cubre la imagen y aparece el botón de acción (transición) */
 .game-card__overlay {
   position: absolute;
   inset: 0;
@@ -469,7 +463,7 @@ body {
   box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
-/* Placeholders de color por juego (reemplazar por imágenes reales) */
+/* Color de fondo por juego (se usa mientras no tiene imagen) */
 .thumb--slither   { background: linear-gradient(135deg, #4b6fd6, #e08a2e); }
 .thumb--pizza      { background: linear-gradient(135deg, #d94f3d, #f2b23b); }
 .thumb--pirates    { background: linear-gradient(135deg, #c9a24a, #7a5a24); }
@@ -487,11 +481,7 @@ body {
 .thumb--traffic    { background: linear-gradient(135deg, #f0d64a, #3a3a3a); }
 .thumb--pvz        { background: linear-gradient(135deg, #3fae4a, #1c6e2e 60%, #0e3d18); }
 
-/* Cards "a completar": el 6º juego de cada carrusel del Home, agregado
-   solo para que siempre quede una card real escondida y el carrusel pueda
-   girar sin límite (ver js/script.js). Se distingue a propósito con un
-   patrón rayado (en vez de un color liso como los demás) para que sea obvio
-   cuál falta completar con el juego real en games.js. */
+/* Fondo rayado de respaldo para juegos sin imagen ni color propio todavía */
 .thumb--placeholder {
   background: repeating-linear-gradient(
     135deg,

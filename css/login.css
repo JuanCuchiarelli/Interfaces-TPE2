@@ -182,9 +182,7 @@
 }
 .auth-success.is-visible { animation: successPop 0.45s ease both; }
 
-/* El check se "dibuja": arranca con el trazo oculto (dashoffset 100%)
-   y llega a 0% -> visible. pathLength="100" en el SVG normaliza el
-   largo del trazo para poder animar en porcentaje. */
+/* El check se "dibuja": dashoffset de 100 a 0 (pathLength="100" en el SVG) */
 @keyframes strokeDraw {
   0%   { stroke-dashoffset: 100; }
   100% { stroke-dashoffset: 0; }
