@@ -6,8 +6,9 @@
    1) LOADING de la Home: spinner + contador de %
    --------------------------------------------------------------- */
 @keyframes spin {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0%   { transform: rotate(0deg); border-top-color: red; }
+  50%  {border-top-color: yellow;}
+  100% { transform: rotate(-360deg); border-top-color: green}
 }
 .loading-spinner {
   animation: spin 0.9s linear infinite;
@@ -16,7 +17,7 @@
 .loading-screen {
   opacity: 1;
   transition: opacity 0.4s ease;
-}
+} 
 .loading-screen.is-hiding { opacity: 0; }
 
 body.is-loading { overflow: hidden; }

@@ -4,7 +4,7 @@
 // ============================================================
 
 (function () {
-  const DURATION = 5000; // 5 segundos exactos
+  const DURATION = 5  000; // 5 segundos exactos
 
   document.addEventListener("DOMContentLoaded", () => {
     const screen = document.getElementById("loading-screen");
